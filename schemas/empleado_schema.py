@@ -1,5 +1,6 @@
-from pydantic import BaseModel
 from typing import Optional
+
+from pydantic import BaseModel
 
 
 class EmpleadoSchema(BaseModel):
@@ -9,7 +10,7 @@ class EmpleadoSchema(BaseModel):
     salary: float
 
 
-class EmpleadoCreate(BaseModel):
+'''class EmpleadoCreate(BaseModel):
     name: str
     cargo: str
-    salary: float
+    salary: float'''

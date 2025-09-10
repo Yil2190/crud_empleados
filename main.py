@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+
 from controllers.empleado_controller import router as empleado_router
 
 app = FastAPI(

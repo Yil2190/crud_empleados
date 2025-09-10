@@ -1,10 +1,11 @@
-from fastapi import APIRouter, Response
-from starlette.status import HTTP_201_CREATED, HTTP_204_NO_CONTENT
-from database.database import engine
-from schemas.empleado_schema import EmpleadoSchema, EmpleadoCreate
-from models.empleado import empleados
 from typing import List
 
+from fastapi import APIRouter, Response
+from starlette.status import HTTP_201_CREATED, HTTP_204_NO_CONTENT
+
+from database.database import engine
+from models.empleado import empleados
+from schemas.empleado_schema import EmpleadoSchema
 
 router = APIRouter()
 
@@ -39,10 +40,12 @@ def get_empleado(empleado_id):
 
 @router.post("/api/empleado", status_code=HTTP_201_CREATED)
 def create_empleado(data_empleado: EmpleadoSchema):
+    new_empleado = data_empleado.dict()
     with engine.begin() as conn:  # cuando ya no se usa se cierra la conexion
-        new_empleado = data_empleado.dict()
-    conn.excecute(empleados.insert().values(new_empleado))
-    conn.commit()
+
+        conn.execute(empleados.insert().values(new_empleado))
+
+    # conn.commit()
     return Response(status_code=HTTP_201_CREATED)
 
 

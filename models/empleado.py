@@ -1,5 +1,7 @@
-from sqlalchemy import Table, Column, Integer, String, Float
+from sqlalchemy import Column, Float, Integer, String, Table
+
 from database.database import engine, metadata
+
 # from sqlmodel import SQLModel, Field
 
 empleados = Table(
