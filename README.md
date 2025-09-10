@@ -22,4 +22,4 @@ Ejecucion:
 uvicorn main:app --reload
 
 Nota:
-El proyecto aun tiene algunos errores 
+El proyecto aun tiene algunos errores que se estan trabajando.
