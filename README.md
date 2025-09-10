@@ -18,6 +18,7 @@ cd crud_empleados
 3. instalar dependencias
 
 Ejecucion:
+
 uvicorn main:app --reload
 
 Nota:
